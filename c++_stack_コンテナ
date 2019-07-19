@@ -1,0 +1,49 @@
+C++コンテナ std::stack
+
+C++コンテナのうちの一つ.データを積み重ねるイメージで末尾挿入、末尾削除を行うことができる.
+https://qiita.com/noco/items/df769668937b6cff7c06 ←参照
+
+push()関数
+
+stack<int> s;
+s.push(0);
+s.push(1);
+トップに要素を挿入する.
+
+pop()関数
+
+stack<int> s;
+s.push(10);
+s.push(20);
+cout << s.top() << endl;  //20
+s.pop();
+cout << s.top() << endl;  //10
+トップ要素を削除する.
+
+empty()関数
+
+stack<int> s;
+cout << s.empty() << endl;  //1
+s.push(1);
+cout << s.empty() << endl;  //0
+空なら1,空でないなら0を返す.
+
+size()関数
+
+stack<int> s;
+cout << s.size() << endl;  //0
+s.push(0);
+s.push(1);
+cout << s.size() << endl;  //2
+格納されている要素の個数を返す.
+
+top()関数
+
+stack<int> s;
+s.push(10);
+s.push(20);
+cout << s.top() << endl;  //20
+
+s.top -= 5;
+cout << s.top() << endl;  //15
+トップ要素にアクセスする.

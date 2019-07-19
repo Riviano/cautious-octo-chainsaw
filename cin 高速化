@@ -1,0 +1,5 @@
+[cinの高速化]
+cin.tie(0);
+ios::sync_with_stdio(0);
+
+詳しくは  http://tatanaideyo.hatenablog.com/entry/2014/10/24/214714を参照

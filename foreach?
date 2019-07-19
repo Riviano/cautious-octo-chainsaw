@@ -1,0 +1,14 @@
+c++11 > 簡素なfor文で各要素にアクセス > for (auto& i: a) { i = 0; }
+
+
+
+
+// std::vector<int> aの要素に順番にアクセス
+for (auto& i : a) {
+  i=0;
+}
+
+// std::list<int> bの要素に順番にアクセス
+for (auto& i : b) {
+  i = 0;
+}

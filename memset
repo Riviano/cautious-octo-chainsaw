@@ -1,0 +1,35 @@
+
+std::memset
+  C++  文字列ライブラリ ヌル終端バイト文字列
+ヘッダ <cstring> で定義
+void* memset( void* dest, int ch, std::size_t count );
+値 ch を unsigned char に変換し、それを dest の指すオブジェクトの先頭 count 文字のそれぞれにコピーします。
+ オブジェクトが潜在的にオーバーラップしている部分オブジェクトである、または TriviallyCopyable (スカラー、配列、またはトリビアルにコピー可能な型の配列など) でない場合、
+動作は未定義です。 count が dest の指すオブジェクトのサイズより大きい場合、動作は未定義です。
+
+引数
+dest	-	埋めるオブジェクトを指すポインタ
+ch	-	埋めるバイト
+count	-	埋めるバイト数
+戻り値
+dest。
+
+ノート
+std::memset は、この関数によって変更されるオブジェクトがその生存期間の残りの間再びアクセスされない場合、 (as-if ルールの下で) 最適化により削除される可能性があります
+(gcc bug 8537)。 そのため、この関数はメモリを洗浄するために (例えば、パスワードを格納した配列をゼロで埋めるために) 使用することはできません。
+ この解決策には、volatile ポインタを用いた std::fill、 C11 の memset_s、 FreeBSD の explicit_bzero、 Microsoft の SecureZeroMemory などがあります。
+
+例
+[Run this code]
+#include <iostream>
+#include <cstring>
+
+int main()
+{
+    int a[20];
+    std::memset(a, 0, sizeof a);
+    for (int ai : a) std::cout << ai;
+}
+出力:
+
+00000000000000000000
